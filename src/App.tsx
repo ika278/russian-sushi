@@ -3,7 +3,6 @@ import StartScreen from './components/StartScreen'
 import GameScreen from './components/GameScreen'
 import ResultScreen from './components/ResultScreen'
 import type { GamePhase, SushiItem } from './types/game'
-import './App.css'
 
 const SUSHI_COUNT = 10
 
