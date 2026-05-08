@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: デプロイするブランチ
+        required: false
+        default: main
 
 permissions:
   contents: read
