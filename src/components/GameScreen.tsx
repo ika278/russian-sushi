@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import SushiPiece from './SushiPiece'
 import SafeOverlay from './SafeOverlay'
@@ -15,14 +15,14 @@ interface Props {
 
 export default function GameScreen({ sushiItems, onSelectSushi, onWasabi, onHome }: Props) {
   const [showSafe, setShowSafe] = useState(false)
-  const [isLocked, setIsLocked] = useState(false)
+  const isLockedRef = useRef(false)
   const [showConfirm, setShowConfirm] = useState(false)
   const [showInfo, setShowInfo] = useState(false)
 
   const handleTap = useCallback((item: SushiItem) => {
-    if (item.isSelected || isLocked) return
+    if (item.isSelected || isLockedRef.current) return
 
-    setIsLocked(true)
+    isLockedRef.current = true
     onSelectSushi(item.id)
 
     if (item.hasWasabi) {
@@ -31,10 +31,10 @@ export default function GameScreen({ sushiItems, onSelectSushi, onWasabi, onHome
       setShowSafe(true)
       setTimeout(() => {
         setShowSafe(false)
-        setIsLocked(false)
+        isLockedRef.current = false
       }, 1000)
     }
-  }, [isLocked, onSelectSushi, onWasabi])
+  }, [onSelectSushi, onWasabi])
 
   return (
     <div className="relative min-h-screen flex flex-col bg-amber-50">
@@ -53,40 +53,13 @@ export default function GameScreen({ sushiItems, onSelectSushi, onWasabi, onHome
         >
           i
         </button>
-        <h2
-          className="text-green-900 text-3xl font-bold"
-          style={{ fontFamily: "'Noto Serif JP', serif" }}
-        >
+        <h2 className="text-green-900 text-3xl font-bold font-noto-serif">
           ロシアン寿司
         </h2>
       </div>
 
       <div className="flex-1 flex items-center justify-center px-4 pb-8">
-        <div
-          className="grid grid-cols-5 gap-2 w-full rounded-2xl p-3"
-          style={{
-            background: `
-              repeating-linear-gradient(
-                92deg,
-                transparent,
-                transparent 3px,
-                rgba(0,0,0,0.04) 3px,
-                rgba(0,0,0,0.04) 6px
-              ),
-              linear-gradient(
-                178deg,
-                #E8C99A 0%,
-                #D4A870 20%,
-                #E2C088 35%,
-                #C49660 55%,
-                #DDB87A 75%,
-                #C8A068 100%
-              )
-            `,
-            border: '2px solid #A07040',
-            boxShadow: '0 6px 16px rgba(100, 60, 10, 0.35), inset 0 1px 0 rgba(255, 230, 170, 0.5), inset 0 -2px 0 rgba(100, 60, 10, 0.2)',
-          }}
-        >
+        <div className="grid grid-cols-5 gap-2 w-full rounded-2xl p-3 sushi-board">
           {sushiItems.map(item => (
             <SushiPiece
               key={item.id}

@@ -15,10 +15,9 @@ export default function ResultScreen({ onRestart }: Props) {
         transition={{ type: 'spring', stiffness: 220, damping: 14 }}
       >
         <p
-          className="text-white font-black select-none leading-none"
+          className="text-white font-black select-none leading-none font-noto-serif"
           style={{
             fontSize: 'clamp(6rem, 28vw, 10rem)',
-            fontFamily: "'Noto Serif JP', serif",
             textShadow: '0 4px 24px rgba(0,0,0,0.4)',
           }}
         >
@@ -37,8 +36,7 @@ export default function ResultScreen({ onRestart }: Props) {
 
       <motion.button
         onClick={onRestart}
-        className="bg-white text-red-800 font-bold text-lg px-12 py-4 rounded-2xl shadow-xl"
-        style={{ fontFamily: "'Noto Serif JP', serif" }}
+        className="bg-white text-red-800 font-bold text-lg px-12 py-4 rounded-2xl shadow-xl font-noto-serif"
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}

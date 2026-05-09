@@ -17,7 +17,7 @@ function createSushiItems(): SushiItem[] {
 
 export default function App() {
   const [phase, setPhase] = useState<GamePhase>('start')
-  const [sushiItems, setSushiItems] = useState<SushiItem[]>(createSushiItems)
+  const [sushiItems, setSushiItems] = useState<SushiItem[]>(() => createSushiItems())
 
   const handleStart = useCallback(() => {
     setSushiItems(createSushiItems())

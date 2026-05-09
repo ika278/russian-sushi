@@ -15,8 +15,7 @@ export default function SushiPiece({ item, onTap }: Props) {
   return (
     <motion.button
       onClick={onTap}
-      className="aspect-square flex items-center justify-center w-full p-1"
-      style={{ cursor: 'pointer', background: 'transparent' }}
+      className="aspect-square flex items-center justify-center w-full p-1 cursor-pointer bg-transparent"
       whileTap={{ scale: 0.85 }}
       transition={{ duration: 0.2 }}
     >

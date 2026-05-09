@@ -42,10 +42,7 @@ export default function StartScreen({ onStart }: Props) {
             className="absolute -bottom-2 -right-4 w-12 select-none"
           />
         </div>
-        <h1
-          className="text-5xl font-black text-green-900 mb-3 tracking-wide"
-          style={{ fontFamily: "'Noto Serif JP', serif" }}
-        >
+        <h1 className="text-5xl font-black text-green-900 mb-3 tracking-wide font-noto-serif">
           ロシアン寿司
         </h1>
         <p className="text-green-700 text-base">
@@ -61,8 +58,7 @@ export default function StartScreen({ onStart }: Props) {
       >
         <motion.button
           onClick={onStart}
-          className="w-full bg-green-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg"
-          style={{ fontFamily: "'Noto Serif JP', serif" }}
+          className="w-full bg-green-800 text-white font-bold text-xl py-5 rounded-2xl shadow-lg font-noto-serif"
           whileTap={{ scale: 0.95 }}
         >
           スタート

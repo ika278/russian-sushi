@@ -20,16 +20,13 @@ export default function ConfirmModal({ isOpen, onConfirm, onCancel }: Props) {
           />
           <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
             <motion.div
-              className="bg-amber-50 rounded-3xl p-8 shadow-2xl w-full"
+              className="bg-amber-50 rounded-3xl p-8 shadow-2xl w-full max-w-md"
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.85 }}
               transition={{ type: 'spring', stiffness: 260, damping: 22 }}
             >
-              <p
-                className="text-xl font-black text-green-900 text-center mb-2"
-                style={{ fontFamily: "'Noto Serif JP', serif" }}
-              >
+              <p className="text-xl font-black text-green-900 text-center mb-2 font-noto-serif">
                 ホームに戻りますか？
               </p>
               <p className="text-green-700 text-sm text-center mb-8">
@@ -39,15 +36,13 @@ export default function ConfirmModal({ isOpen, onConfirm, onCancel }: Props) {
               <div className="flex gap-3">
                 <button
                   onClick={onCancel}
-                  className="flex-1 py-3 rounded-2xl border-2 border-green-800 text-green-800 font-bold"
-                  style={{ fontFamily: "'Noto Serif JP', serif" }}
+                  className="flex-1 py-3 rounded-2xl border-2 border-green-800 text-green-800 font-bold font-noto-serif"
                 >
                   キャンセル
                 </button>
                 <button
                   onClick={onConfirm}
-                  className="flex-1 py-3 rounded-2xl bg-green-800 text-white font-bold"
-                  style={{ fontFamily: "'Noto Serif JP', serif" }}
+                  className="flex-1 py-3 rounded-2xl bg-green-800 text-white font-bold font-noto-serif"
                 >
                   戻る
                 </button>

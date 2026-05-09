@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .font-noto-serif {
+    font-family: 'Noto Serif JP', serif;
+  }
+}
+
+.sushi-board {
+  background:
+    repeating-linear-gradient(
+      92deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.04) 3px,
+      rgba(0,0,0,0.04) 6px
+    ),
+    linear-gradient(
+      178deg,
+      #E8C99A 0%,
+      #D4A870 20%,
+      #E2C088 35%,
+      #C49660 55%,
+      #DDB87A 75%,
+      #C8A068 100%
+    );
+  border: 2px solid #A07040;
+  box-shadow:
+    0 6px 16px rgba(100, 60, 10, 0.35),
+    inset 0 1px 0 rgba(255, 230, 170, 0.5),
+    inset 0 -2px 0 rgba(100, 60, 10, 0.2);
+}
+
 * {
   -webkit-tap-highlight-color: transparent;
   user-select: none;

@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 const MESSAGES = [
@@ -16,7 +17,7 @@ function randomMessage() {
 }
 
 export default function SafeOverlay() {
-  const message = randomMessage()
+  const message = useMemo(() => randomMessage(), [])
 
   return (
     <motion.div
@@ -28,11 +29,8 @@ export default function SafeOverlay() {
       transition={{ duration: 0.15 }}
     >
       <motion.p
-        className="text-white font-black tracking-widest select-none"
-        style={{
-          fontSize: 'clamp(5rem, 22vw, 8rem)',
-          fontFamily: "'Noto Serif JP', serif",
-        }}
+        className="text-white font-black tracking-widest select-none font-noto-serif"
+        style={{ fontSize: 'clamp(5rem, 22vw, 8rem)' }}
         initial={{ scale: 0.4, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 1.1, opacity: 0 }}
@@ -41,8 +39,8 @@ export default function SafeOverlay() {
         SAFE
       </motion.p>
       <motion.p
-        className="text-green-200 font-bold select-none"
-        style={{ fontSize: 'clamp(1.2rem, 5vw, 1.8rem)', fontFamily: "'Noto Serif JP', serif" }}
+        className="text-green-200 font-bold select-none font-noto-serif"
+        style={{ fontSize: 'clamp(1.2rem, 5vw, 1.8rem)' }}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
