@@ -94,9 +94,3 @@
 | スタイリング | Tailwind CSS |
 | アニメーション | Framer Motion |
 | ホスティング | GitHub Pages |
-
----
-
-## 未決定事項
-
-- 寿司のビジュアル表現（イラスト / 絵文字 / CSS）
